@@ -1,0 +1,20 @@
+.row
+  .large-12.columns
+    %p#notice= notice
+
+    %p
+      %b Name:
+      = @car_class.name
+
+    %h3 Versions
+    %ul
+      - @car_class.versions.each do |version|
+        %li
+          = succeed(',') do
+            = link_to version.car.display_name, version.car
+          = version.trim
+
+
+    = link_to 'Edit', edit_car_class_path(@car_class)
+    \|
+    = link_to 'Back', car_classes_path

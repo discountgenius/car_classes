@@ -1,0 +1,12 @@
+.row
+  .large-12.columns
+    %h1 Merge
+    = form_tag do_merge_car_class_path(@car_class) do
+      .field
+        = label_tag :other_id, "Merge #{@car_class.name} with:"
+        = select_tag :other_id, options_from_collection_for_select(@other_options, :id, :name)
+      .field
+        = label_tag :new_name
+        = text_field_tag :new_name, @car_class.name
+      .actions
+        = submit_tag 'Save'

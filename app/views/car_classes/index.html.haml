@@ -1,0 +1,24 @@
+.row
+  .large-12.columns
+    %h1 Car Classes
+
+    %table
+      %thead
+        %tr
+          %th Name
+          %th
+          %th
+          %th
+          %th
+      %tbody
+        - @car_classes.each do |car_class|
+          %tr
+            %td= car_class.name
+            %td= link_to 'Show', car_class
+            %td= link_to 'Merge', merge_car_class_path(car_class)
+            %td= link_to 'Edit', edit_car_class_path(car_class)
+            %td= link_to 'Destroy', car_class, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %br
+
+    = link_to 'New Car class', new_car_class_path
